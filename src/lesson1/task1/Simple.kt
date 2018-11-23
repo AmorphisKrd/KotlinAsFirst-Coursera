@@ -29,6 +29,7 @@ fun discriminant(a: Double, b: Double, c: Double) = sqr(b) - 4 * a * c
  *
  * Поиск одного из корней квадратного уравнения
  */
+
 fun quadraticEquationRoot(a: Double, b: Double, c: Double) =
         (-b + sqrt(discriminant(a, b, c))) / (2 * a)
 
@@ -48,8 +49,10 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main(args: Array<String>) {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+    val x6 = angleInRadian(36,14,35)
+    println(x6)
+
+    println(thirdDigit(3801))
 }
 
 /**
@@ -75,7 +78,14 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    val degD:Double = deg.toDouble()
+    val minD:Double =min.toDouble()
+    val secD:Double = sec.toDouble()
+
+    return (degD + minD/60+secD/3600)* PI/180
+
+}
 
 /**
  * Тривиальная
@@ -91,7 +101,11 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int {
+    val numberD = number.toDouble()
+    val numres = ((numberD/1000)-(number/1000)/1)*10
+    return numres.toInt()
+}
 
 /**
  * Простая
